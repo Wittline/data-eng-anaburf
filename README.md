@@ -320,10 +320,10 @@ def track_flights(tickets, airports):
     destinations = {*tickets.values()}
  
     
-    for k, v in tickets.items():
+    for departures, v in tickets.items():
 
-        if k not in destinations:        
-            track_itinerary(tickets, k, airports)
+        if departures not in destinations:        
+            track_itinerary(tickets, departures, airports)
             return
  
  
