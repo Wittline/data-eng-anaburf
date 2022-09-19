@@ -337,10 +337,12 @@ def track_itinerary(dictionary, departure, airports):
  
 def get_cities_from_flights(tickets, airports):
       
-    destinations = {*tickets.values()}
+    destinations = {
+    *tickets.values()
+    }
  
     
-    for departures, v in tickets.items():
+    for departures, values in tickets.items():
 
         if departures not in destinations:        
             track_itinerary(tickets, departures, airports)
