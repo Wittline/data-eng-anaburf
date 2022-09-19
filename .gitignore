@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+code/opt/airflow/logs/scheduler/latest
+code/db/init.sql
