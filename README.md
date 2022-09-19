@@ -315,7 +315,7 @@ def track_itinerary(dictionary, departure, airports):
     track_itinerary(dictionary, destination,airports)
  
  
-def track_flights(tickets, airports):
+def get_cities_from_flights(tickets, airports):
       
     destinations = {*tickets.values()}
  
@@ -345,7 +345,7 @@ if __name__ == '__main__':
         'MA1': 'AR1'
     }
  
-    track_flights(tickets, airports)
+    get_cities_from_flights(tickets, airports)
 
 # USA, Houston — —> Mexico, CANCUN
 # Mexico, CANCUN — —> Mexico, CDMX
