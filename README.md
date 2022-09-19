@@ -254,7 +254,9 @@ I did some modifications to the original file, I modified the line 17 with: **DR
 
 ### Using Airflow:
 
-Once the questions were analyzed, I proceeded to design only 5 custom operators, this to avoid creating a lot of code and reusing functionality.
+
+
+Once the questions were analyzed, I proceeded to design 5 <a href="https://airflow.apache.org/docs/apache-airflow/1.10.14/howto/custom-operator.html">Custom Operators</a>, this to avoid creating a lot of code and reusing functionality.
 
 - **dataframes_merge_to_pg.py**: This will execute two queries, the results will be stored into two pandas dataframe, then it will apply a merge operation between both using two columns as keys. The final result will be stored in a PostgreSQL table. 
 - **pg_query_condition.py**: This will execute a query inside a PostgreSQL db If and only if a specific variable allows it,
