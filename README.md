@@ -14,6 +14,22 @@ R&D Data engineering challenge Frubana
 
 I will use a **docker-compose.yaml** file to install everything using docker containers, in total there will be 8 containers:
 
+### **Apache Airflow Environment**
+- Web server (Apache Airflow)
+- Metadata (PostgreSQL)
+- Scheduler (Apache Airflow)
+- Queue (redis)
+- Worker (Celery)
+- Monitoring task and workers (Flower)
+
+### **Database Environment**
+- Destination DB: (PostgreSQL)
+- Source Demo (PostgreSQL)
+
+
+<img width="2048" alt="Untitled (1)" src="https://user-images.githubusercontent.com/8701464/190950090-233a037f-deb9-4b00-a0a2-aa21e31dbda4.png">
+
+
  ```yaml
 version: '3.8'
 
@@ -144,19 +160,6 @@ volumes:
     driver: local
 ```
 
-### **Apache Airflow Environment**
-- Web server (Apache Airflow)
-- Metadata (PostgreSQL)
-- Scheduler (Apache Airflow)
-- Queue (redis)
-- Worker (Celery)
-- Monitoring task and workers (Flower)
-
-### **Database Environment**
-- Destination DB: (PostgreSQL)
-- Source Demo (PostgreSQL)
-
-
 ### **How to install everything**
 
 - Install <a href="https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/">git-bash for windows</a>, once installed , open **git bash** and download this repository, this will download the **dags** folder and the **docker-compose.yaml** file, and other files needed.
@@ -194,7 +197,6 @@ $ docker-compose up
 ```
 
 
-
 - Everything is up and running, the next thing to do is go to your browser and search <a href="http://localhost:8080/">http://localhost:8080</a>  this will call your webserver and would open your AIRFLOW GUI, for this example the <strong>user</strong> and <strong>password</strong> is "airflow", you can change it in your <strong>.yaml</strong> file.
 
 
@@ -202,7 +204,14 @@ $ docker-compose up
 
 - Once inside your AIRFLOW GUI, In the header menu -> Admin -> Variables, Import the variables needed, they are located into the variables folder in the repository downloaded, import the **variables.json** file
 
+![variables](https://user-images.githubusercontent.com/8701464/190950267-d2574ae1-7a96-43b7-902c-1e4b41e212eb.JPG)
+
+
+
 - Now go to Admin -> Connections and put the Connections needed, in this case the two PostgreSQL db instances already created as a docker containers.
+
+![conn](https://user-images.githubusercontent.com/8701464/190950246-fdbd69f8-12c2-4d68-b72a-f7ae3fb4ec0a.JPG)
+
 
 ### Running DAG
 
@@ -211,6 +220,9 @@ $ docker-compose up
 ```linux
 $ docker ps
 ```
+
+![dockerps](https://user-images.githubusercontent.com/8701464/190950377-69fbbf89-4683-4fb7-ae90-68be2ea9dd3c.JPG)
+
 
 - The scheduler are putting the dags for running, so, choose the container id related with the scheduler and execute the command below, it will execute the dags
 
@@ -222,9 +234,15 @@ $ docker exec 59f776ba04ae airflow dags trigger frubana_test_dag
 - The other way for execute dags is using the GUI, which is easier to understand and manage
 
 
+![fru_dag](https://user-images.githubusercontent.com/8701464/190950505-709d9c38-ff39-496d-80b6-bb1bd10b09a2.JPG)
+
+
 
 ## 2. Install this database (might be the small version):
 <a href="https://postgrespro.com/education/demodb">https://postgrespro.com/education/demodb</a>
+
+![demodb-bookings-schema](https://user-images.githubusercontent.com/8701464/190950297-7c9cb1f5-174b-484a-97a9-fc838bcbb6aa.JPG)
+
 
 - I downloaded the file: <a href="https://edu.postgrespro.com/demo-small-en.zip">https://edu.postgrespro.com/demo-small-en.zip</a> , and placed it into the "db" folder in this repository, once  the container start building the image, it will perform the execution of this whole script **docker-entrypoint-initdb.d/demo-small-en-20170815.sql** inside the container.
 
@@ -262,6 +280,7 @@ Once the questions were analyzed, I proceeded to design only 5 custom operators,
 
 The DAG is shown below:
 
+![dag_img](https://user-images.githubusercontent.com/8701464/190950571-35567d2d-46eb-440e-a49c-f7d9a729edd5.JPG)
 
 
 
