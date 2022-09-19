@@ -283,8 +283,7 @@ The DAG is shown below:
 ![dag_img](https://user-images.githubusercontent.com/8701464/190950571-35567d2d-46eb-440e-a49c-f7d9a729edd5.JPG)
 
 
-
-- **a.** Create a query to retrieve flights related to planes having the most used aircraft model (tip: use CTE - Common Table Expressions), and load the data in a Pandas DataFrame.
+- **a. Create a query to retrieve flights related to planes having the most used aircraft model (tip: use CTE - Common Table Expressions), and load the data in a Pandas DataFrame.**
 
 
 This part of the test will be separated in two tasks:
@@ -294,11 +293,11 @@ The execution of the task **pgQueryToVariable_1** will use the query **get_most_
 **Apache Airflow should not be used to store variables locally**
 
 
-- **b.** Create another query to retrieve tickets booked in the last 6 months, along with their amount. Put the data into a DataFrame.
+- **b. Create another query to retrieve tickets booked in the last 6 months, along with their amount. Put the data into a DataFrame.**
 
 The execution of the task **pgQueryToPgStaging_2** will use the query **get_tickets_booked_last_6_months**, the result will be moved to an staging table: **staging_2**
 
-- **c.** Merge both datasets (4.a) and (4.b) above into a single one, to get all the flights and their tickets, using Pandas functionality. Save the result in a table.
+- **c. Merge both datasets (4.a) and (4.b) above into a single one, to get all the flights and their tickets, using Pandas functionality. Save the result in a table.**
 
 The task **dataframesMergeToPg_1** will use the result of the last two queries stored in an staging area and will perform the merge as dataframes, the result will be stored in another staging table: **staging_3**
 
@@ -315,7 +314,7 @@ The task **dataframesMergeToPg_1** will use the result of the last two queries s
     )
 ```
 
-- **d.** Find the average ticket count for each of the aircraft models that were most used, i.e. those in the result of 4.c.
+- **d. Find the average ticket count for each of the aircraft models that were most used, i.e. those in the result of 4.c.**
 
 The task **average_ticket_per_model** is performing this last calculation through the query **get_average_count_tickets** and is storing the result in another staging table: **staging_4**
 
