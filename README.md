@@ -1,5 +1,5 @@
 # data-eng-anaburf
-R&D Data engineering challenge Frubana
+R&D Data engineering challenge
 
 <img width="2048" alt="Untitled (1)" src="https://user-images.githubusercontent.com/8701464/190950090-233a037f-deb9-4b00-a0a2-aa21e31dbda4.png">
 
