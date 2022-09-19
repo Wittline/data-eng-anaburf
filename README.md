@@ -263,6 +263,8 @@ check the section below inside the **docker-compose.yaml** file:
       - ./db/init.sql:/docker-entrypoint-initdb.d/demo-small-en-20170815.sql
 ```
 
+I did some modifications to the original file, I modified the line 17 with: **DROP DATABASE IF EXISTS demo;**, so REMEMBER add this file to the folder **db** and modify this line.
+
 
 ## 3. Setup a python environment (might be Anaconda or anything else)
 
