@@ -1,6 +1,8 @@
 # data-eng-anaburf
 R&D Data engineering challenge Frubana
 
+<img width="2048" alt="Untitled (1)" src="https://user-images.githubusercontent.com/8701464/190950090-233a037f-deb9-4b00-a0a2-aa21e31dbda4.png">
+
 # Language and libs
 - Python
 - Pandas
@@ -25,9 +27,6 @@ I will use a **docker-compose.yaml** file to install everything using docker con
 ### **Database Environment**
 - Destination DB: (PostgreSQL)
 - Source Demo (PostgreSQL)
-
-
-<img width="2048" alt="Untitled (1)" src="https://user-images.githubusercontent.com/8701464/190950090-233a037f-deb9-4b00-a0a2-aa21e31dbda4.png">
 
 
  ```yaml
