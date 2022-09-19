@@ -324,8 +324,51 @@ The task **average_ticket_per_model** is performing this last calculation throug
 
  ```python
  
-def dldld():
+def track_itinerary(dictionary, departure, airports):
+    destination = dictionary.get(departure)
+    if not destination:
+        return
+ 
+    print(airports[departure] + ' — —> ' + airports[destination])
+    track_itinerary(dictionary, destination,airports)
+ 
+ 
+def track_flights(tickets, airports):
+      
+    destinations = {*tickets.values()}
+ 
+    
+    for k, v in tickets.items():
 
+        if k not in destinations:        
+            track_itinerary(tickets, k, airports)
+            return
+ 
+ 
+if __name__ == '__main__':
+ 
+    airports = {
+
+        "AR1": "Argentina, BUENOS AIRES",
+        "BA1": "Brazil, Sao paulo",
+        "MA1": "Mexico, CDMX",
+        "MA2": "Mexico, CANCUN",
+        "US1": "USA, Houston",
+        "US2": "USA, Seattle"
+    }
+    tickets = {
+        'AR1': 'BA1',
+        'MA2': 'MA1',
+        'US1': 'MA2',
+        'MA1': 'AR1'
+    }
+ 
+    track_flights(tickets, airports)
+
+# USA, Houston — —> Mexico, CANCUN
+# Mexico, CANCUN — —> Mexico, CDMX
+# Mexico, CDMX — —> Argentina, BUENOS AIRES
+# Argentina, BUENOS AIRES — —> Brazil, Sao paulo
 ```
 
 
